@@ -5,11 +5,11 @@
  */ 
 #include "ch32v00x.h"
 
-void GPIO_init(void){                          // GPIOA Setup
-    RCC->APB2PCENR |= RCC_IOPAEN |RCC_IOPCEN   // Clock GPIOA, GPIOC, AFIO
-                   |  RCC_AFIOEN;
+void GPIO_init(void){                          
+    RCC->APB2PCENR |= RCC_IOPAEN |RCC_IOPCEN   // Clock GPIOA, GPIOC
+                   |  RCC_AFIOEN;              // Clock  AFIO
     AFIO->PCFR1 &= ~(1 << 15);                 // PA12_RM bit clear for PA1 and PA2 -> General IO Pin
-
+                                               // GPIOA Setup
     GPIOA->CFGLR &= ~(0xF << 8);               // Reset PA2 config
     GPIOA->CFGLR |=  (0x8 << 8);               // PA2 Input-PullUp
     GPIOA->OUTDR |=  (0x1 << 2);               // PA2 pull-up ENABLE -> TURN ON PWR HOLD
