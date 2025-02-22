@@ -1,6 +1,8 @@
 /* One GPIO Soft PWR switch with reverse polarity protection.
  * The GPIO pin is further usable in the code as an input pin (IPU) for button input.
- */
+ * PA2 PWR HOLD, BUTTON
+ * PC2 LED
+ */ 
 #include "ch32v00x.h"
 
 void GPIO_init(void){                          // GPIOA Setup
